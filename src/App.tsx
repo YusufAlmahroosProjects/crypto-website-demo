@@ -1,7 +1,12 @@
 import React from "react";
+import Mainwindow from '../components/Mainwindow'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => {
-  return <h1>Fintech Dashboard</h1>;
+function App ()
+{
+  return (
+    <Mainwindow name = "Yusuf" age = {12}/>
+  );
 };
 
 export default App;
