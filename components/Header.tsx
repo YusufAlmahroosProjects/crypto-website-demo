@@ -39,8 +39,8 @@ const learnOptions = [
 export default function Header() 
 {
   return (
-    <div className = 'container'>
-      <img src={Logo} className='header-logo'/>
+    <div className = 'header-container' >
+      <img src={Logo} className ='header-logo'/>
       <nav className='header-nav'>
         <InputSelect name = 'Market' options =  {marketOptions}/>
         <InputSelect name = 'Training' options = {traningOptions}/>
