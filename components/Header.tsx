@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/header.css'
 import Logo from '../resource/Plus500-Logo.png'
-import { InputSelect } from '../components/menu_components/InputFields'
+import { DropdownSelect, InputSelect } from '../components/menu_components/InputFields'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const marketOptions = [
   {name: 'CFGs'        , link: '#'}, 
@@ -36,28 +37,43 @@ const learnOptions = [
   { name: 'Economic Calendar'        , link: '#' },
 ];
 
+const languagesOptions = [
+  { name: 'English' , short: 'EN'},
+  { name: 'Deutsch' , short: 'DE'},
+  { name: 'Arabic'  , short: 'AR'},
+]
 export default function Header() 
 {
+  const [language, setLanguage] = useState("EN");
+
+  function handleLanguageChange(event: React.ChangeEvent<HTMLSelectElement>)
+  {
+    const selected = languagesOptions.find(item => item.name === event.target.value)
+    if(selected)
+    {
+      setLanguage(selected.short);
+    }
+  }
+
   return (
     <div className = 'header-container' >
       <img src={Logo} className ='header-logo'/>
       <nav className='header-nav'>
-        <InputSelect name = 'Market' options =  {marketOptions}/>
-        <InputSelect name = 'Training' options = {traningOptions}/>
-        <InputSelect name = 'Company' options = {companyOptions}/>
-        <InputSelect name = 'Learn' options = {learnOptions}/>
+        <DropdownSelect name = 'Market' options =  {marketOptions}/>
+        <DropdownSelect name = 'Training' options = {traningOptions}/>
+        <DropdownSelect name = 'Company' options = {companyOptions}/>
+        <DropdownSelect name = 'Learn' options = {learnOptions}/>
       </nav>
       <div className='header-actions'>
-        <button>
+        <button className='header-text-button'>
           Login
         </button>
-        <button>
-          EN
-        </button>
-        <button>
-          Search
-        </button>
-        <button>
+        <InputSelect 
+          options = {languagesOptions} 
+          name = {language}
+          onChange={handleLanguageChange}/>
+        <i className="bi bi-search header-search-icon"></i>
+        <button className='header-trading-btn'>
           Start  Trading
         </button>
       </div>

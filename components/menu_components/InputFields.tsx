@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown, Form } from 'react-bootstrap'
 import '../../styles/input_fields.css'
 import {theme_palette} from '../global_var/theme.ts';
 
-type drobdownMenu =
+type dropdownMenu =
 {
   options: {
     name: string,
@@ -14,7 +14,19 @@ type drobdownMenu =
   className?: string,
 }
 
-export function InputSelect(props: drobdownMenu) 
+type inputSelct =
+{
+  options: {
+    name: string,
+    short: string
+  }[],
+  name: string,
+  style?: React.CSSProperties,
+  className?: string,
+  onChange? : (event: React.ChangeEvent<HTMLSelectElement>) => void
+} 
+
+export function DropdownSelect(props: dropdownMenu) 
 {
   const [isHover, setIsHover]       = useState(false);
   const [hoverIndex, setHoverIndex] = useState<null | number>(null)
@@ -67,3 +79,18 @@ export function InputSelect(props: drobdownMenu)
     )
 }
 
+export function InputSelect (props: inputSelct)
+{
+  return (
+    <Form.Select onChange = {props.onChange} value={props.name}>
+      <>
+      {
+        props.options.map((item, idx) => 
+        (
+          <option key = {idx}>{item.name}</option>
+        ))
+      }
+      </>
+    </Form.Select>
+  )
+}
