@@ -1,16 +1,13 @@
 import React from 'react';
 import Header from './Header';
+import Body from './Body';
 
-export type MyObj = 
-{
-  name: string,
-  age: number,
-}
-export default function Mainwindow(props: MyObj) 
+export default function Mainwindow() 
 {
   return (  
     <div>
       <Header/>
+      <Body/>
     </div>
   )
 } 

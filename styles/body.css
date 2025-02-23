@@ -1,0 +1,27 @@
+@keyframes gradientAnimation 
+{
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.body-container
+{
+  background: linear-gradient(
+    45deg, 
+    var(--lighter-color), 
+    var(--secondary-color), 
+    var(--light-color));
+  background-size: 300% 300%;
+  animation: gradientAnimation 5s ease infinite;
+  height: 500px;
+  padding: 20px 40px;
+}
+
+.body-hero 
+{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
