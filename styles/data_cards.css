@@ -47,3 +47,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+@media (max-width: 955px) {
+  .card-container 
+  {
+    width: 320px;
+    min-height: 200px;
+    height: auto;
+  }
+
+  .data-card-text, .data-card-body-text 
+  {
+    font-size: small;
+  }
+
+  .data-card-body-el
+  {
+    width: calc(50% - 20px);
+  }
+}

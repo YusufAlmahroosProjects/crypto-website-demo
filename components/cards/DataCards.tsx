@@ -32,10 +32,10 @@ export function DataCard (props: dataCard)
         <div className='data-card-text'>{props.header.short}</div>
       </div>
       <div className='data-card-body'>
-        <div className='data-card-body-el'><span>Current Value: </span>{props.body.currentValue}</div>
-        <div className='data-card-body-el'><span>Groth: </span>{props.body.groth}</div>
-        <div className='data-card-body-el'><span>Market Cap: </span>{props.body.marketCap}</div>
-        <div className='data-card-body-el'><span>Volume 24: </span>{props.body.volume24}</div>
+        <div className='data-card-body-el data-card-body-text'><span>Current Value: </span>{props.body.currentValue}</div>
+        <div className='data-card-body-el data-card-body-text'><span>Groth: </span>{props.body.groth}</div>
+        <div className='data-card-body-el data-card-body-text'><span>Market Cap: </span>{props.body.marketCap}</div>
+        <div className='data-card-body-el data-card-body-text'><span>Volume 24: </span>{props.body.volume24}</div>
       </div>
     </div>
   )
